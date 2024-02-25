@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Heaven : Booking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+   background: linear-gradient(135deg, #8E9264, #e1c360ff, #e9d490ff, #f1e5c0ff, #f4ecd3ff, #faf9f9ff); 
+  /* background: linear-gradient(225deg, #77a1acff, #a4e6f8ff, #bbedfaff, #d2f3fcff, #e9f9feff, #f4fcffff); */
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  background-color: rgba(177, 176, 176, 0.315);
+  padding: 20px 40px;
+  border-radius: 5px;
+  border-radius: 10px;
+  height: 70.5;
+  overflow: hidden;
+  width: 30vw;
+  margin-left: 5%;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container a {
+  text-decoration: none;
+}
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background-color: rgba(31, 30, 30, 0.986);
+  padding: 15px;
+  font-family: inherit;
+  font-size: 20px;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  height: 6vh;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.text {
+  margin-top: 30px;
+}
+
+.form-control {
+  position: relative;
+  margin: 50px 0 40px;
+  width: 300px;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #1a191994 solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #1a1919;
+  width: 24.84vw;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: #1a1919;
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  color: #1a1919;
+  transform: translateY(-30px);
+}
+
+
+/*CHECKOUT*/
+
+table{
+  height: 60vh;
+  border: 1px solid #1a1919b0;
+  border-radius: 10px;
+  width: 35vw;
+  overflow: hidden;
+  width: 45vw;
+}
+
+td button{
+  display: block;
+  border: none;
+  border: 1px solid;
+  height: 25px;
+  border-radius: 10px;
+  width: 80px;
+}
+
+tr:first-child{
+  font-size: larger;
+}
+
+tr td:first-child{
+  padding-left: 5%;
+}
+tr td:last-child{
+  padding-left: 3%;
+  font-weight: 600;
+}
+
+
+
+td button{
+  font-family: 'Muli', sans-serif;
+  font-weight: 600;
+  margin-right: 2vw; 
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+td button:disabled{
+    cursor: not-allowed;
+}
+section div{
+  margin-top: 3.5%;
+  height: 8vh;
+  border: 1px solid #1a1919b0;
+  border-radius: 10px;
+  display: flex;
+  justify-content:space-between;
+  font-size: x-large;
+  font-weight: 800;
+  padding: 0 5% 0 5.5%;
+  overflow: hidden;
+}
+img{
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+}
+.serv{
+    display: flex;
+    align-items: center;
+}
+.serv ~ td:last-of-type{
+    font-size: larger;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form id="form">
+        <h1>Appointment Request</h1>
+
+        <div class="form-control">
+          <input type="text" id="first" required>
+          <label>First Name</label>
+          <span class="error"></span>
+        </div>
+
+        <div class="form-control">
+          <input type="text" id="last" required>
+          <label>Last Name</label>
+          <span class="error"></span>
+        </div>
+
+        <div class="form-control">
+          <input type="email" id="email" required>
+          <label>Email</label>
+          <span class="error"></span>
+        </div>
+
+        <div class="form-control">
+          <input type="text" id="phone" required>
+          <label>Phone Number</label>
+          <span class="error"></span>
+        </div>
+
+        <div class="form-control">
+          <input type="text" required>
+          <label>Adresse</label>
+        </div>
+
+        <button class="btn" type="submit">Submit</button>
+      </form>
+    </div>
+
+
+    <section>
+        <table>
+            <tr >
+                <td><h1>Services</h1></td>
+                <td></td>
+                <td><h1>Prices</h1></td>
+            </tr>
+
+            <tr>
+                <td class="serv"><img src="./pet grooming.jpg" alt="Grooming">
+                    <h3>Pet Grooming Services</h3>
+                </td>
+                <td>
+                    <button class="btn1" onclick="add(1)">Add</button>
+                    <button id="btn1" onclick="remove(1)" disabled>Remove</button>
+                </td>
+                <td>450 DH</td>
+            </tr>
+
+            <tr>
+                <td class="serv"> 
+                    <img src="./pet boarding.jpg" alt="Grooming">
+                    <h3>Pet Boarding Facilities</h3></td>
+                <td>
+                    <button class="btn2" onclick="add(2)">Add</button>
+                    <button id="btn2" onclick="remove(2)" disabled>Remove</button>
+                </td>
+                <td>470 DH</td>
+            </tr>
+
+            <tr>
+                <td class="serv">
+                    <img src="./pet walking.jpg" alt="Grooming">
+                    <h3>Pet Walking Services</h3></td>
+                <td>
+                    <button class="btn3" onclick="add(3)">Add</button>
+                    <button id="btn3" onclick="remove(3)" disabled>Remove</button>
+                </td>
+                <td>300 DH</td>
+            </tr>
+
+            <tr>
+                <td class="serv">
+                    <img src="./pet dental.jpg" alt="Grooming">
+                    <h3>Pet Dental Care</h3></td>
+                <td>
+                    <button class="btn4" onclick="add(4)">Add</button>
+                    <button id="btn4" onclick="remove(4)" disabled>Remove</button>
+                </td>
+                <td>600 DH</td>
+            </tr>
+
+            <tr>
+                <td class="serv" >
+                    <img src="./pet training.jpg" alt="Grooming">
+                    <h3>Pet Training Programs</h3></td>
+                <td>
+                    <button class="btn5" onclick="add(5)">Add</button>
+                    <button id="btn5" onclick="remove(5)" disabled>Remove</button>
+                </td>
+                <td>500 DH</td>
+            </tr>
+
+            <tr>
+                <td class="serv">
+                    <img src="./pet daycare.jpg" alt="Grooming">
+                    <h3>Pet Daycare Services</h3></td>
+                <td>
+                    <button class="btn6" onclick="add(6)">Add</button>
+                    <button id="btn6" onclick="remove(6)" disabled>Remove</button>
+                </td>
+                <td>370 DH</td>
+            </tr>
+        </table>
+        <div>
+            <p>Total</p>
+            <p id="resultat">0 DH</p>
+        </div>
+    </section>
+
+
+
+
+
+
+    <script>
+        const labels = document.querySelectorAll('.form-control label')
+
+labels.forEach(label => {
+    label.innerHTML = label.innerText
+        .split('')
+        .map((letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}</span>`)
+        .join('')
+})
+const form = document.getElementById('form');
+const first = document.getElementById('first');
+const last = document.getElementById('last');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+
+form.addEventListener('submit', e =>{
+    if (valideinput()==false ){
+        e.preventDefault();
+    }
+    else{
+        alert('Form Submitted , Check ur email for the dates of your appointments !')
+    }
+})
+
+function seterror(element,message) {
+    const inputcontrol = element.parentElement
+    const errordisplay = inputcontrol.querySelector('.error');
+    errordisplay.innerText = message;
+    
+}
+function setsucces(element) {
+    const inputcontrol = element.parentElement;
+    const errordisplay = inputcontrol.querySelector('.error');
+    errordisplay.innerText = '';
+}
+function valideinput(){
+    let output = true
+    const namepatern = /^[a-zA-z\s]+$/;
+    const phonepatern = /^[0-9]+$/;
+    const emailpatern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; 
+    if (!namepatern.test(first.value.trim())){
+        output = false
+        seterror(first,'Enter a valid name.');
+    }else{
+        setsucces(first);
+    }
+    if (!namepatern.test(last.value.trim())){
+        output = false
+        seterror(last,'Enter a valid name.');
+    }else{
+        setsucces(last);
+    }
+    if (!emailpatern.test(email.value.trim())){
+        output = false
+        seterror(email,'Enter a valid email address.');
+    }else{
+        setsucces(email);
+    }
+    if (!phonepatern.test(phone.value.trim())){
+        output = false
+        seterror(phone,'Enter a valid phonr number.');
+    }else if(phone.value.trim().length!=10){
+        output = false
+        seterror(phone,'Enter a valid phone number.');
+    }else{
+        setsucces(phone);
+    }
+    return output;
+    }
+    
+    </script>
+    <script> 
+        var somme = 0
+        var services = [
+            { nom: "Service 1", prix: 450 },
+            { nom: "Service 2", prix: 470 },
+            { nom: "Service 3", prix: 300 },
+            { nom: "Service 4", prix: 600 },
+            { nom: "Service 5", prix: 500 },
+            { nom: "Service 6", prix: 370 }
+        ];
+        var resultat = document.getElementById("resultat");
+        function add(nbr){
+            let btn = document.querySelector('.btn'+nbr);
+            btn.disabled= true
+            let bttn = document.getElementById('btn'+nbr);
+            bttn.disabled= false
+            somme+=services[nbr - 1].prix
+            resultat.textContent = `${parseFloat(somme)} DH`
+    
+        }
+        function remove(nbr){
+            let btn = document.querySelector('.btn'+nbr);
+            btn.disabled= false
+            let bttn = document.getElementById('btn'+nbr);
+            bttn.disabled= true
+            somme-=services[nbr - 1].prix
+            resultat.textContent = `${parseFloat(somme)} DH`
+        }
+    </script>
+
+
+
+  </body>
+</html>
